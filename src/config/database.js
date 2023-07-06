@@ -2,7 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 
-mongoose.connect(`mongodb+srv://t5:omegat5@omega.iw7e8lr.mongodb.net/?retryWrites=true&w=majority`, {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

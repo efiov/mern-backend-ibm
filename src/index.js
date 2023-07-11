@@ -1,7 +1,12 @@
-const express = require("express");
-const database = require("./config/database");
-const eventRoutes = require("./routes/eventRoutes");
-const cors = require("cors");
+const express = require('express');
+const database = require('./config/database');
+const eventRoutes = require('./routes/eventRoutes');
+const { events } = require('./models/eventModel');
+const bodyParser = require("body-parser");
+const passport = require("passport");
+const { users } = require("./models/userModel");
+const userRoutes = require('./routes/userRoutes');
+const cors = require('cors');
 
 const app = express();
 app.use(

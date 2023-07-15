@@ -2,8 +2,9 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const { DB_URL } = require('./keys');
 mongoose.set('strictQuery', true);
+const url = process.env.DB_URL.toString();
 
-mongoose.connect(DB_URL, {
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

@@ -1,5 +1,6 @@
 const express = require("express");
 //const { events } = require("./models/eventModel");
+const database = require('./config/database');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const port = 3001;

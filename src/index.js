@@ -1,6 +1,5 @@
 const express = require("express");
-//const { events } = require("./models/eventModel");
-const database = require('./config/database');
+const { events } = require("./models/eventModel");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const port = 3001;
@@ -15,7 +14,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
-//app.use('/events', eventRoutes);
+app.use('/events', eventRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

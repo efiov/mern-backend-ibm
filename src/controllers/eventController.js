@@ -1,4 +1,4 @@
-const Event = require('../models/eventModel');
+const Event = require("../models/eventModel");
 
 exports.getEvents = async (req, res) => {
   try {
@@ -15,6 +15,8 @@ exports.createEvent = async (req, res) => {
     description: req.body.description,
     date: req.body.date,
     location: req.body.location,
+    lat: req.body.lat,
+    long: req.body.long
   });
 
   try {

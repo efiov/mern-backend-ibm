@@ -1,4 +1,3 @@
-const { Double } = require("mongodb");
 const mongoose = require("mongoose");
 
 const eventSchema = new mongoose.Schema(
@@ -20,12 +19,12 @@ const eventSchema = new mongoose.Schema(
       required: true,
     },
     lat: {
-      type: Double,
-      require: true,
+      type: Number,
+      required: true,
     },
     long: {
-      type: Double,
-      require: true,
+      type: Number,
+      required: true,
     },
   },
   { timestamps: true }

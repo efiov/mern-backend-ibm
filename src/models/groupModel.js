@@ -9,8 +9,8 @@ const groupSchema = new mongoose.Schema(
     },
     members: [
       {
-        type: [String],
-        require: false,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
       },
     ],
   },

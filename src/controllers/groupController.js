@@ -31,3 +31,17 @@ exports.createGroup = async (req, res) => {
     res.status(500).json({ error: "Failed to create group" });
   }
 };
+
+exports.deleteGroup = async (req, res) => {
+  try {
+    const user = await Group.findOneAndDelete({ _id: req.body.id });
+    if (!user) {
+      return res.status(400).send("Group not found");
+    }
+    return res
+      .status(200)
+      .send("Grup with id " + req.body.id + " has been deleted");
+  } catch (err) {
+    return res.status(400).json(err);
+  }
+};

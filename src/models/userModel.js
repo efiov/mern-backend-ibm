@@ -14,10 +14,14 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: false,
     },
-    admin: {
-      type: Boolean,
-      required: false,
-    },
+    events: [{ 
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Event"
+   }],
+   groups: [{ 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Group"
+ }]
   },
   { collection: "User" }
 );

@@ -11,7 +11,7 @@ exports.getUsers = async (req, res) => {
 
 exports.myEvents = async (req, res) => {
   try {
-    User.findOne({ _id: req.body.id })
+    User.findOne({ email: req.body.email })
       .populate("events")
       .populate("groups")
       .then((user) => {

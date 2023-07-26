@@ -18,6 +18,8 @@ exports.createEvent = async (req, res) => {
     type: req.body.type,
     date: req.body.date,
     location: req.body.location,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
   });
   const selectedGroups = req.body.selectedGroups;
 

@@ -18,10 +18,20 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    groups: [{ 
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Group"
-   }]
+    latitude: {
+      type: Number,
+      required: true,
+    },
+    longitude: {
+      type: Number,
+      required: true,
+    },
+    groups: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Group",
+      },
+    ],
   },
   { collection: "Event" }
 );

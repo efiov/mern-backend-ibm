@@ -21,3 +21,40 @@ exports.myEvents = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+exports.updateRoleToAdmin = async (req, res) => {
+  const id = req.body.id;
+  const updates = {
+    $set: {
+      role: "ADMIN",
+    },
+  };
+  try {
+    const user = await User.findByIdAndUpdate(id, updates, { new: true });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found." });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Error occurred while updating user." });
+  }
+};
+
+exports.updateRoleToUser = async (req, res) => {
+  const id = req.body.id;
+  const updates = {
+    $set: {
+      role: "USER",
+    },
+  };
+  try {
+    const user = await User.findByIdAndUpdate(id, updates, { new: true });
+    if (!user) {
+      return res.status(404).json({ error: "User not found." });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: "Error occurred while updating user." });
+  }
+};

@@ -14,6 +14,11 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: false,
     },
+    role: {
+      type: String,
+      enum: ["USER", "ADMIN"],
+      default: "USER",
+    },
     events: [
       {
         type: mongoose.Schema.Types.ObjectId,

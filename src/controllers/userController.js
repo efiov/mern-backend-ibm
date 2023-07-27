@@ -62,8 +62,8 @@ exports.updateRoleToUser = async (req, res) => {
 
 exports.joinEvent = async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(
-      { _id: req.body.userId },
+    const user = await User.findOneAndUpdate(
+      { email: req.body.email },
       { $addToSet: { myEvents: req.body.eventId } },
       { new: true, upsert: true }
     );

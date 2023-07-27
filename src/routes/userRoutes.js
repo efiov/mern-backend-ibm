@@ -6,5 +6,6 @@ router.get("/getUsers", userController.getUsers);
 router.post("/my", userController.myEvents);
 router.post("/updateRoleToAdmin", userController.updateRoleToAdmin);
 router.post("/updateRoleToUser", userController.updateRoleToUser);
+router.post("/joinEvent", userController.joinEvent);
 
 module.exports = router;

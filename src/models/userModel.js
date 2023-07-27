@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema(
         ref: "Event",
       },
     ],
+    myEvents: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Event",
+      },
+    ],
     groups: [
       {
         type: mongoose.Schema.Types.ObjectId,

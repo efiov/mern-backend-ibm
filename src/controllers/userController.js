@@ -13,6 +13,7 @@ exports.myEvents = async (req, res) => {
   try {
     User.findOne({ email: req.body.email })
       .populate("events")
+      .populate("myEvents")
       .populate("groups")
       .then((user) => {
         res.json(user);
@@ -57,4 +58,18 @@ exports.updateRoleToUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Error occurred while updating user." });
   }
+};
+
+exports.joinEvent = async (req, res) => {
+  try {
+    const user = await User.findByIdAndUpdate(
+      { _id: req.body.userId },
+      { $addToSet: { myEvents: req.body.eventId } },
+      { new: true, upsert: true }
+    );
+    if (!user) {
+      return res.status(404).json({ error: "User not found." });
+    }
+    res.json(user);
+  } catch (error) {}
 };
